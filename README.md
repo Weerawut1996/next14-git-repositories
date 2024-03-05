@@ -14,6 +14,8 @@ npm i
 ```
 
 ```bash
+npx next dev
+# or
 npm run dev
 # or
 yarn dev
@@ -28,4 +30,11 @@ bun dev
 npm view react version
 
 --- check react version
+```
+
+```bash
+# build
+npx next build
+# start
+npx next start
 ```
