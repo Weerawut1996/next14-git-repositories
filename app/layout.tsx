@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import NavbarComponent from "./Component/NavberCompo";
-import FooterComponent from "./Component/FooterCompo";
+import NavbarComponent from "./Component/NavberComponent";
+import FooterComponent from "./Component/FooterComponent";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,6 @@ export default function RootLayout({
 }: {
    children: React.ReactNode;
 }) {
-   
    return (
       /* tag <html> use only in loop layout.tsx*/
       <html lang="en">
@@ -26,6 +26,9 @@ export default function RootLayout({
             </header>
             {children}
             <FooterComponent />
+            <Script async>
+               {`document.addEventListener('selectstart', event => event.preventDefault());`}
+            </Script>
          </body>
       </html>
    );
