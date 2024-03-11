@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>searchText</title>
+</head>
+
+<body>
+   <input type="text" id="searchInput" placeholder="ค้นหาจาก persin_id, card_id หรือ telephone...">
+   <table id="myTable">
+      <tr>
+         <th>ID</th>
+         <th>persin_id</th>
+         <th>Name</th>
+         <th>card_id</th>
+         <th>b_date</th>
+         <th>telephone</th>
+      </tr>
+      <tr>
+         <td>1</td>
+         <td>12345</td>
+         <td>John</td>
+         <td>67890</td>
+         <td>01/01/1990</td>
+         <td>555-5555</td>
+      </tr>
+      <tr>
+         <td>2</td>
+         <td>aaa12345</td>
+         <td>Json</td>
+         <td>678901515</td>
+         <td>05/09/1996</td>
+         <td>444-5555</td>
+      </tr>
+      <tr>
+         <td>3</td>
+         <td>bbbb1234</td>
+         <td>Jaba</td>
+         <td>123451515</td>
+         <td>05/09/1996</td>
+         <td>555-6666</td>
+      </tr>
+      <tr>
+         <td>4</td>
+         <td>dddd12345</td>
+         <td>jj</td>
+         <td>678901515</td>
+         <td>05/09/1996</td>
+         <td>555-6666</td>
+      </tr>
+      <!-- เพิ่มแถวข้อมูลเพิ่มเติมที่นี่ -->
+   </table>
+   <script>
+      // JavaScript สำหรับค้นหาและแสดงผลข้อมูล
+      const searchInput = document.getElementById('searchInput');
+      const table = document.getElementById('myTable');
+      const rows = table.getElementsByTagName('tr');
+
+      searchInput.addEventListener('keyup', function () {
+         const searchText = searchInput.value.toLowerCase();
+
+         for (let i = 1; i < rows.length; i++) { // เริ่มต้นที่ 1 เพื่อข้ามแถวหัวตาราง
+            const row = rows[i];
+            const persin_id = row.getElementsByTagName('td')[1]; // ดึงข้อมูล persin_id จากคอลัมน์ที่ 2
+            const person_name = row.getElementsByTagName('td')[2]; // ดึงข้อมูล Name จากคอลัมน์ที่ 3
+            const card_id = row.getElementsByTagName('td')[3]; // ดึงข้อมูล card_id จากคอลัมน์ที่ 4
+            const telephone = row.getElementsByTagName('td')[5]; // ดึงข้อมูล telephone จากคอลัมน์ที่ 6
+
+            if (persin_id || person_name || card_id || telephone) {
+               const persin_idText = persin_id ? persin_id.textContent.toLowerCase() : '';
+               const person_nameText = person_name ? person_name.textContent.toLowerCase() : '';
+               const card_idText = card_id ? card_id.textContent.toLowerCase() : '';
+               const telephoneText = telephone ? telephone.textContent.toLowerCase() : '';
+
+               if (persin_idText.includes(searchText) || person_nameText.includes(searchText) || card_idText.includes(searchText) || telephoneText.includes(searchText)) {
+                  row.style.display = ''; // แสดงแถวที่มีข้อมูลตรงกับคำค้นหา
+               } else {
+                  row.style.display = 'none'; // ซ่อนแถวที่ไม่ตรงคำค้นหา
+               }
+            }
+         }
+      });
+
+
+      // Get local time zone
+      const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+      console.log("Local Time Zone:", localTimeZone);
+   </script>
+
+</body>
+
+</html>
