@@ -1,0 +1,17 @@
+.item1 { grid-area: HeadNav; }
+.item2 { grid-area: s-left; }
+.item3 { grid-area: main; }
+.item4 { grid-area: s-right; }
+.item5 { grid-area: footer; }
+.item6 { grid-area: ect; }
+
+.g_layout{
+   display: grid;
+   grid-template-columns: 15vw 70vw 15vw;
+   grid-template-areas:
+    'HeadNav HeadNav HeadNav'
+    's-left main s-right'
+    'footer footer footer'
+    'ect ect ect';
+}
+
