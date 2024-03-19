@@ -1,12 +1,14 @@
-Next-14 require node.js v18.17.0 
+## Original
 
-## Spec
-> "react": "18.2.0"
-> "react-dom": "^18"
-> "next": "14.0.4"
-> "typescript": "^5",
+> node.js v18.17.0<br/>
+> npm v10.2.4<br/>
+> "react": "18.2.0"<br/>
+> "react-dom": "^18" <br/>
+> "next": "14.0.4" <br/>
+> "typescript": "^5", 
 
 ## Getting Started
+
 First, run the development server:
 
 ```bash
@@ -25,11 +27,10 @@ pnpm dev
 bun dev
 ```
 
-```bash
---- check react version
-npm view react version
+Check react version
 
---- check react version
+```bash
+npm view react version
 ```
 
 ```bash
