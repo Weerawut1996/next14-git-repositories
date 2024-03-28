@@ -1,12 +1,16 @@
 'use client'
-
+import { useRouter } from "next/navigation";
 import { ChangeEvent, useState } from "react";
 
 export default function LiquidCalculation() {
    const [CalName, setCalName] = useState('What you want the Calculation?')
+   const router = useRouter()
 
-   function SetCalName_UseState(e: ChangeEvent<HTMLSelectElement>) { //<ChangeEvent<HTMLSelectElement> is Type
-      setCalName(e.target.value != 'None' ? e.target.value + " Calculater" : 'What you want the Calculation?')
+   function SetCalName_UseState(e: ChangeEvent<HTMLSelectElement>) {
+      const TargetValue = e.target.value
+      setCalName(TargetValue != 'None' ? TargetValue + " Calculater" : 'What you want the Calculation?')
+      router.push('/Product/Calculater?v='+TargetValue)
+      // change url function
 
    }
    return (<>
@@ -18,7 +22,8 @@ export default function LiquidCalculation() {
             <option value='None'>None</option>
             <option value='Percentage'>Percent</option>
             <option value='Liquid'>Liquid</option>
-            <option value='Game&#32;Enegy'>Game Enegy</option>
+            <option value='Game&#32;Enegy'>Game Enegy</option>            
+            <option value='Time'>Time</option>
          </select >
       </div>
 
