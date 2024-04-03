@@ -9,8 +9,9 @@ export default function LiquidCalculation() {
    function SetCalName_UseState(e: ChangeEvent<HTMLSelectElement>) {
       const TargetValue = e.target.value
       setCalName(TargetValue != 'None' ? TargetValue + " Calculater" : 'What you want the Calculation?')
+      // ^ change h1
       router.push('/Product/Calculater?v='+TargetValue)
-      // change url function
+      // ^ change URL
 
    }
    return (<>
