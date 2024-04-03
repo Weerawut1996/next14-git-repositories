@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
-import Link from "next/link";
 import ProductNacbar from './ProductNacbar';
+import _s from "@/app/_G.module.css"
+
 
 export const metadata: Metadata = {
    title: 'Resume Page',
-   description: 'Wut Resume Page',
+   description: 'Wutmilyer Resume Page',
 }
 
 export default function ResumeLayout({
@@ -13,14 +14,23 @@ export default function ResumeLayout({
    children: React.ReactNode
 }) {
    return (<>
-      <nav className='inline-block w-2/12'>
+      <nav className={_s.item2}>
          <ProductNacbar />
       </nav>
-      <main className='inline-block w-8/12'>
+      <main  className={_s.item3}>
          {children}
       </main>
-      <aside className='inline-block w-2/12 pl-2'>
-         <p>asdasd</p>
+      <aside className={_s.item4}>
+         <p className='text-[14px]'>sm:</p>
+         <p className='text-[12px]'>ทำงาน wight มากกว่า 640px</p>
+         <p className='text-[14px]'>md:</p>
+         <p className='text-[12px]'>ทำงาน wight มากกว่า 768px</p>
+         <p className='text-[14px]'>lg:</p>
+         <p className='text-[12px]'>ทำงาน wight มากกว่า 1024px</p>
+         <p className='text-[14px]'>xl:</p>
+         <p className='text-[12px]'>ทำงาน wight มากกว่า 1280px</p>
+         <p className='text-[14px]'>2xl:</p>
+         <p className='text-[12px]'>ทำงาน wight มากกว่า 1536px</p>
       </aside>
    </>
    )
