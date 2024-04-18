@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import _s from "@/app/_G.module.css"
 
