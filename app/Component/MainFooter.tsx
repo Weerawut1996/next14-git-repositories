@@ -1,24 +1,19 @@
 "use client"
-import { useEffect, useState } from "react";
+import _s from "@/app/_G.module.css"
+import DayAndTime from '@/app/Component/DayAndTimer'
+import useWindowWidthAndHeight from "./WindowWidthAndHeight";
 
 export default function FooterComponent() {
-   const day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']   
    const year = new Date().getFullYear();
-   const [time_now, settime_now] = useState("00:00:00");
-
-   useEffect(() => {
-      const interval = setInterval(() => {
-         const currentTime = new Date().toLocaleTimeString();
-         settime_now(currentTime);
-      }, 1000);
-      // Clear interval on unmount
-      return () => clearInterval(interval);
-   }, []);
+   const { Day, Month, Time } = DayAndTime()
+   const { Width, Height } = useWindowWidthAndHeight();
 
    return (
-      <footer>
-         <p className="text-center">{day[new Date().getDay()]} footer  &#169; 2024 - {year} {time_now}</p>
+      <footer className={`${_s.item5}`}>
+         <p className="text-center"> Footer  &#169; 2024 - {year} {Time}</p>
+         <p className="text-center">{Day} {Month}</p>         
+         <p id="window-width" className="text-center text-[#363636]" >Width: {Width} px</p>
+         {/* <p id="window-height" className="text-[7px]"  >Height: {Height} px</p> */}
       </footer>
-      
    );
 }
