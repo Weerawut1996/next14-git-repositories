@@ -18,7 +18,7 @@ export default function SearchTable() {
    return (<>
       <h1 className="text-4xl font-bold text-center">SearchTable</h1>
       <p className="my-2 text-center">{inputValue == '' ? <span className="text-transparent">0</span> : inputValue}</p>
-      <table id="myTable" className="w-10/12 mx-auto my-auto">
+      <table id="myTable" className="w-8/12 mx-auto my-auto">
          <thead>
             <tr className="mb-2">
                <th colSpan={6} className="pb-2">
@@ -30,13 +30,13 @@ export default function SearchTable() {
                   />
                </th>
             </tr>
-            <tr className="divide-x divide-slate-600">
-               <th className="max-w-[24px]">ID</th>
-               <th className="max-w-[116px]">Personel ID</th>
-               <th className="max-w-[204px]">Name</th>
-               <th className="max-w-[116px]">Card Id</th>
-               <th className="max-w-[116px]">Birt Date</th>
-               <th className="max-w-[116px]">Telephone</th>
+            <tr className="divide-x divide-slate-600 border-b border-slate-600">
+               <th className="w-[10%]">ID</th>
+               <th className="w-[16%] pl-[2%] text-left ">Personel ID</th>
+               <th className="w-[22%]">Name</th>
+               <th className="w-[16%]">Card Id</th>
+               <th className="w-[16%]">Birt Date</th>
+               <th className="w-[16%]">Telephone</th>
             </tr>
          </thead>
          <tbody>
@@ -49,7 +49,7 @@ export default function SearchTable() {
                      <td className="pl-[2%]">{row.person_id}</td>
                      <td className="pl-[2%]">{row.Name}</td>
                      <td className="pl-[2%]">{row.card_id}</td>
-                     <td className="pl-[2%]">{row.b_date}</td>
+                     <td className="text-center">{row.b_date}</td>
                      <td className="pl-[2%]">{row.telephone}</td>
                   </tr>
                )
