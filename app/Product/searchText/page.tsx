@@ -18,25 +18,21 @@ export default function SearchTable() {
    return (<>
       <h1 className="text-4xl font-bold text-center">SearchTable</h1>
       <p className="my-2 text-center">{inputValue == '' ? <span className="text-transparent">0</span> : inputValue}</p>
-      <table id="myTable" className="w-8/12 mx-auto my-auto">
+      <input className="block text-[#000] mt-0 mb-1 mx-auto w-[250px] px-2 py-1 text-[14px]/[20px]" type="search" value={inputValue}
+         onChange={(event) => {
+            setInputValue(event.target.value);
+            setlowcaseInput(event.target.value.toLowerCase());
+         }}
+      />
+      <table id="myTable" className="w-8/12 mx-auto my-auto table-fixed">
          <thead>
-            <tr className="mb-2">
-               <th colSpan={6} className="pb-2">
-                  <input className="text-[#000]  max-w-[250px] px-2 py-1 text-[14px]/[20px]" type="search" value={inputValue}
-                     onChange={(event) => {                       
-                        setInputValue(event.target.value);
-                        setlowcaseInput(event.target.value.toLowerCase());
-                     }}
-                  />
-               </th>
-            </tr>
             <tr className="divide-x divide-slate-600 border-b border-slate-600">
-               <th className="w-[10%]">ID</th>
-               <th className="w-[16%] pl-[2%] text-left ">Personel ID</th>
-               <th className="w-[22%]">Name</th>
-               <th className="w-[16%]">Card Id</th>
-               <th className="w-[16%]">Birt Date</th>
-               <th className="w-[16%]">Telephone</th>
+               <th className="">ID</th>
+               <th className="">Personel ID</th>
+               <th className="">Name</th>
+               <th className="">Card Id</th>
+               <th className="">Birt Date</th>
+               <th className="">Telephone</th>
             </tr>
          </thead>
          <tbody>
@@ -44,7 +40,7 @@ export default function SearchTable() {
                // console.log(row);
                // console.log(new Date().toLocaleTimeString());
                return (
-                  <tr key={row.ID} className="divide-x divide-slate-600">
+                  <tr key={row.ID} className={`divide-x divide-slate-600 ${row.ID % 2 != 0?'bg-[#111]':''}`}>
                      <td className="text-center">{row.ID}</td>
                      <td className="pl-[2%]">{row.person_id}</td>
                      <td className="pl-[2%]">{row.Name}</td>
