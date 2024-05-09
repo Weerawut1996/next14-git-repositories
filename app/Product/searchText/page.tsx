@@ -24,15 +24,15 @@ export default function SearchTable() {
             setlowcaseInput(event.target.value.toLowerCase());
          }}
       />
-      <table id="myTable" className="w-8/12 mx-auto my-auto table-fixed">
+      <table id="myTable" className="w-[800px] mx-auto my-auto table-fixed">
          <thead>
             <tr className="divide-x divide-slate-600 border-b border-slate-600">
-               <th className="">ID</th>
-               <th className="">Personel ID</th>
-               <th className="">Name</th>
-               <th className="">Card Id</th>
-               <th className="">Birt Date</th>
-               <th className="">Telephone</th>
+               <th className="w-[8%]">ID</th>
+               <th className="w-[22%]">Personel ID</th>
+               <th className="w-[26%]">Name</th>
+               <th className="w-[20%]">Card Id</th>
+               <th className="w-[16%]">Birt Date</th>
+               <th className="w-[18%]">Telephone</th>
             </tr>
          </thead>
          <tbody>
@@ -40,7 +40,7 @@ export default function SearchTable() {
                // console.log(row);
                // console.log(new Date().toLocaleTimeString());
                return (
-                  <tr key={row.ID} className={`divide-x divide-slate-600 ${row.ID % 2 != 0?'bg-[#111]':''}`}>
+                  <tr key={row.ID} className={`divide-x divide-slate-600 ${row.ID % 2 != 0 ? 'bg-[#111]' : ''}`}>
                      <td className="text-center">{row.ID}</td>
                      <td className="pl-[2%]">{row.person_id}</td>
                      <td className="pl-[2%]">{row.Name}</td>
@@ -56,6 +56,7 @@ export default function SearchTable() {
                   <td colSpan={6}>no data</td>
                </tr>
             )}
+            
          </tbody>
       </table>
    </>
